@@ -1,6 +1,7 @@
 import Model.*;
 import Repo.DataRepo;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,6 +10,9 @@ public class Main {
 
     private static void ex1() { // Range of people
         // TODO...
+        List<Person> personList = DataRepo.getPeople();
+        personList = personList.stream().filter(x-> x.getAge() >= 20 && x.getAge() <= 40).collect(Collectors.toList());
+        System.out.println(personList.toString());
 
     }
 
