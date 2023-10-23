@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        ex3();
+        ex4();
     }
     private static void ex1() { // Range of people
         // TODO...
@@ -30,7 +30,14 @@ public class Main {
 
     private static void ex4() { // Word counter
         // TODO...
-
+        List<String> strings = DataRepo.readFile();
+        HashMap<String, Integer> res = new HashMap<>();
+        for(String s : strings){
+            res.put(s, res.getOrDefault(s, 0)+1);
+        }
+        for(Map.Entry<String, Integer> r : res.entrySet()){
+            System.out.println(r.getKey() + " " + r.getValue());
+        }
     }
 
     private static void ex5() { // Sorted word counter

@@ -15,7 +15,7 @@ public class DataRepo {
     public static ArrayList<String> readFile() {
         var retval = new ArrayList<String>();
         try {
-            try (FileReader reader = new FileReader("input-data.txt")) { // try-with-resources.
+            try (FileReader reader = new FileReader("C:\\Users\\f9g1nad\\tedprojects\\java3\\java-collections\\input-data.txt")) { // try-with-resources.
                 StreamTokenizer st = new StreamTokenizer(reader);
                 while(st.nextToken() != StreamTokenizer.TT_EOF) {
                     if (st.sval != null) {
