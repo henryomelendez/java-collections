@@ -2,10 +2,11 @@ import Model.*;
 import Repo.DataRepo;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
-        ex4();
+        ex5();
     }
     private static void ex1() { // Range of people
         // TODO...
@@ -42,6 +43,15 @@ public class Main {
 
     private static void ex5() { // Sorted word counter
         // TODO...
-
+        List<String> strings = DataRepo.readFile();
+        HashMap<String, Integer> res = new HashMap<>();
+        for(String s : strings){
+            res.put(s, res.getOrDefault(s, 0)+1);
+        }
+       List<Map.Entry<String, Integer>> list = new ArrayList<>(res.entrySet());
+        list.sort(Map.Entry.comparingByValue());
+        list.forEach((x) -> System.out.println(x.getKey() + ": " + x.getValue()));
     }
+
+
 }
